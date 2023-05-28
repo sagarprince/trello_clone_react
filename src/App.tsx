@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import { signal } from "@preact/signals-react";
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+const count = signal(0);
 
+function App() {
   return (
     <>
       <div>
@@ -18,7 +19,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => count.value++}>
           count is {count}
         </button>
         <p>
